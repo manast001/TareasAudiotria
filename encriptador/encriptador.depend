@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1398568105 source:/home/manast/Repositorio/c++/encriptador/encript.cpp
+
+1398570012 source:/home/manast/Repositorio/c++/encriptador/main.cpp
+	<iostream>
+	"encript.h"
+
+1398570801 /home/manast/Repositorio/c++/encriptador/encript.h
+	<cstdio>
+	<cstdlib>
+	<string>
+	<fstream>
+
