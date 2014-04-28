@@ -1,6 +1,8 @@
-
-<ul>
-<li><a href="http://www.codeblocks.org/downloads">Code blocks</a></li>
-<li>C++</li>
-</ul>
-
+<html>
+	<body>
+		<ul>
+			<li><a href="http://www.codeblocks.org/downloads">Code blocks</a></li>
+			<li>C++</li>
+		</ul>
+	</body>
+</html>
