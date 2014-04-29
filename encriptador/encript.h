@@ -3,8 +3,8 @@
 #include <cctype>
 #include <string>
 #include<fstream>
-#define MAX 122
-#define MIN 97
+#define MAX 255
+#define MIN 6
 
 #ifndef ENCRIPT_H_INCLUDED
 #define ENCRIPT_H_INCLUDED
@@ -34,7 +34,7 @@ class Encriptador
         for(int i = 0 ; i < palabra->size() ; i++ )
             corrimiento+=(int) palabra->at(i);
         corrimiento*=palabra->size();
-        corrimiento=(corrimiento%22)+4; //numero entre 4 y 25
+        corrimiento=(corrimiento%(MAX-MIN)+MIN); //numero entre 4 y 25
 
     }
 
@@ -60,14 +60,21 @@ class Encriptador
     string getFile(){
         return *ruta;
     }
+
     //Metodos de encriptación
-    void encriptar();
+    void encriptar()
+    {
+         while(!archivo->eof())
+         {
+
+         }
+    }
+
     string encriptar(string frase)
     {
         int codascii=0;
         for(int i=0;i<frase.size();i++)
         {
-            frase[i] = tolower(frase[i]);
             if (frase[i]+corrimiento > MAX)
             {
                 codascii = MIN + ((frase[i]+corrimiento) - MAX);
@@ -110,10 +117,14 @@ class Encriptador
     //Destructor
     ~Encriptador()
     {
-
+        if(!ruta->empty())
+        {
+            ruta->clear();
+            archivo->close();
+            delete(archivo);
+        }
         delete(palabra);
         delete(ruta);
-        delete(archivo);
         delete(destino);
     }
 
