@@ -13,11 +13,11 @@
 
 1398568105 source:/home/manast/Repositorio/tareas/TareasAudiotria/encriptador/encript.cpp
 
-1398750021 source:/home/manast/Repositorio/tareas/TareasAudiotria/encriptador/main.cpp
+1398831274 source:/home/manast/Repositorio/tareas/TareasAudiotria/encriptador/main.cpp
 	<iostream>
 	"encript.h"
 
-1398750387 /home/manast/Repositorio/tareas/TareasAudiotria/encriptador/encript.h
+1398832182 /home/manast/Repositorio/tareas/TareasAudiotria/encriptador/encript.h
 	<cstdio>
 	<cstdlib>
 	<cctype>

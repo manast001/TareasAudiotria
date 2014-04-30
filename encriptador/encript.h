@@ -47,7 +47,15 @@ class Encriptador
             delete(archivo);
         }
         ruta->insert(0,nombre);
-        archivo=new fstream(ruta->c_str(), ios::in|ios::out|ios::trunc|ios::binary);
+        archivo=new ifstream(ruta->c_str());
+
+        if(archivo == NULL)
+        {
+            cout<<"Archivo no valido"<<endl;
+            ruta->clear();
+            archivo->close();
+            delete(archivo);
+        }
     }
 
     //Metodos GET
@@ -64,10 +72,21 @@ class Encriptador
     //Metodos de encriptación
     void encriptar()
     {
-         while(!archivo->eof())
-         {
+        string encript("");
 
-         }
+        destino=new ofstream("encript.txt");
+
+
+        while(!archivo->eof())
+        {
+            (*archivo)>>encript;
+            (*destino)<<encriptar(encript)<<endl;
+            encript.clear();
+        }
+
+        destino->close();
+        delete (destino);
+
     }
 
     string encriptar(string frase)
@@ -89,7 +108,23 @@ class Encriptador
     }
 
     //Metodos de desencriptacion
-    void desencriptar();
+    void desencriptar()
+    {
+        string encript("");
+
+        destino=new ofstream("Noencript.txt");
+
+        while(!archivo->eof()){
+            (*archivo)>>encript;
+
+            (*destino) << desencriptar(encript)<<endl;
+
+            encript.clear();
+        }
+        destino->close();
+        delete (destino);
+    }
+
     string desencriptar(string frase)
     {
         int codascii=0;
@@ -131,8 +166,8 @@ class Encriptador
     private:
     string *palabra;
     string *ruta;
-    string *destino;
-    fstream *archivo;
+    ifstream *archivo;
+    ofstream *destino;
     int corrimiento;
 };
 
